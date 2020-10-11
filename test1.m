@@ -1,0 +1,19 @@
+    clf;
+    set(gcf,'Unit','normalized','Position',[0.2,0.3,0.65,0.35]);
+    set(gcf,'Menubar','none','Name','图形演示','NumberTitle','off');
+    axes('Position',[0.05,0.15,0.55,0.7]);
+    uicontrol(gcf,'Style','text', 'Unit','normalized',...
+       'Posi',[0.63,0.85,0.2,0.1],'String','输入绘图命令','Horizontal','center');
+    hedit=uicontrol(gcf,'Style','edit','Unit','normalized','Posi',[0.63,0.15,0.2,0.68],...
+       'Max',2);        %Max取2，使Max-Min>1，从而允许多行输入
+    hpopup=uicontrol(gcf,'Style','popup','Unit','normalized',...
+       'Posi',[0.85,0.8,0.15,0.15],'String','Spring|Summer|Autumn|Winter');
+    hlist=uicontrol(gcf,'Style','list','Unit','normalized',...
+       'Posi',[0.85,0.55,0.15,0.25],'String','Grid on|Grid off|Box on|Box off');
+    hpush1=uicontrol(gcf,'Style','push','Unit','normalized',...
+       'Posi',[0.85,0.35,0.15,0.15],'String','绘 图');
+    uicontrol(gcf,'Style','push','Unit','normalized',...
+       'Posi',[0.85,0.15,0.15,0.15],'String','关 闭','Call','close all');
+    set(hpush1,'Call','COMM2(hedit,hpopup,hlist)');
+    set(hlist,'Call','COMM2(hedit,hpopup,hlist)');
+    set(hpopup,'Call','COMM2(hedit,hpopup,hlist)');    
